@@ -8,7 +8,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
-import javax.servlet.http.HttpServletResponse;
+import java.io.*;
+import java.util.Date;
+import java.util.LinkedList;
 
 @Controller
 public class RegistrationController {
@@ -20,8 +22,8 @@ public class RegistrationController {
     }
 
     @PostMapping("/registration") //название html c submit - ом
-    public String registrationSubmit(@ModelAttribute User user, HttpServletResponse resp) {
+    public String registrationSubmit(@ModelAttribute User user) {
+        User.saveUser(user);
         return "searchingResults"; //то что нам отдаёт ссылка сверху
     }
-
 }
