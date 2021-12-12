@@ -8,22 +8,18 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
-import java.io.*;
-import java.util.Date;
-import java.util.LinkedList;
-
 @Controller
 public class RegistrationController {
 
-    @GetMapping("/registrationForm") //ссылка по которой нам отдаётся форма регистрации
+    @GetMapping("/registrationForm")
     public String getRegistrationForm(Model model) {
         model.addAttribute("user", new User());
-        return "registration"; //то, что нам отдаёт ссылка сверху
+        return "registration";
     }
 
-    @PostMapping("/registration") //название html c submit - ом
+    @PostMapping("/registration") //можно было не менять
     public String registrationSubmit(@ModelAttribute User user) {
         User.saveUser(user);
-        return "registrationResults"; //то что нам отдаёт ссылка сверху
+        return "registrationResults";
     }
 }

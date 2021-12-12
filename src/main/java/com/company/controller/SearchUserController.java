@@ -16,33 +16,25 @@ import java.util.Date;
 
 @Controller
 public class SearchUserController {
-    @GetMapping("/searchForm") //ссылка по которой нам отдаётся форма регистрации
+    @GetMapping("/searchForm")
     public String getSearchForm(Model model) {
         model.addAttribute("searchUser", new SearchUser());
-        return "search"; //то, что нам отдаёт ссылка сверху
+        return "search";
     }
 
-    @GetMapping("/searchResult") //ссылка по которой нам отдаётся форма регистрации
-    public String getSearchResultForm() {
-        return "searchResult"; //то, что нам отдаёт ссылка сверху
-    }
-
-    /*
-    @GetMapping("/searchNot") //ссылка по которой нам отдаётся форма регистрации
-    public String getSearchResultForm(@ModelAttribute SearchUser searchUser, Model model, HttpServletRequest request, HttpServletResponse response) throws IOException {
+    @GetMapping("/search") //get потому что это поиск
+    public String getSearchResultForm(@ModelAttribute SearchUser searchUser, @ModelAttribute SearchMessage searchMessage, HttpServletRequest request, HttpServletResponse response) throws IOException {
         User user = User.searchUser(searchUser.getFirstName(), searchUser.getLastName());
-        model.addAttribute("searchMessage", new SearchMessage());
         if(user == null) {
-            model.addAttribute("Пользователь не найден!");
+            searchMessage.setMessage("Пользователь не найден!\n \n ");
         } else {
+            //можно было сделать через Rest контроллер и response.sendRedirect(); Но мне показалось, что так красивее)
             HttpSession session = request.getSession(true);
             String result = "Текущее время: " + new Date(session.getCreationTime()) +
-                    " \nИмя браузера: " + request.getHeader("User-Agent") +
+                    " \nБраузер: " + request.getHeader("User-Agent") +
                     "\nПользователь: " + user;
-            model.addAttribute(result);
+            searchMessage.setMessage(result);
         }
-        return "searchResult"; //то, что нам отдаёт ссылка сверху
+        return "searchResult";
     }
-
-     */
 }

@@ -5,7 +5,9 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
 <body>
-<p>Пользователь не найден!</p>
+<p th:text="${searchMessage.message.split('\n')[0]}"/>
+<p th:text="${searchMessage.message.split('\n')[1]}"/>
+<p th:text="${searchMessage.message.split('\n')[2]}"/>
 <a href="/searchForm">Назад</a>
 </body>
 </html>
