@@ -16,7 +16,7 @@ public class SearchMessage {
     }
 
     public void setMessage(SearchUser searchUser, HttpServletRequest request) {
-        User user = User.searchUser(searchUser.getFirstName(), searchUser.getLastName());
+        User user = User.searchUser(searchUser);
         if(user == null) {
             this.message = "User not found!\n \n ";
         } else {

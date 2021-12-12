@@ -2,6 +2,7 @@ package com.company.controller;
 
 import com.company.model.SearchMessage;
 import com.company.model.SearchUser;
+import com.company.model.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -20,8 +21,9 @@ public class SearchUserController {
     }
 
     @GetMapping("/search")
-    public String getSearchResultForm(@ModelAttribute SearchUser searchUser, @ModelAttribute SearchMessage searchMessage, HttpServletRequest request, HttpServletResponse response) throws IOException {
+    public String getSearchResultForm(Model model, @ModelAttribute SearchUser searchUser, @ModelAttribute SearchMessage searchMessage, HttpServletRequest request, HttpServletResponse response) throws IOException {
         searchMessage.setMessage(searchUser, request);
+        model.addAttribute("foundUser", User.searchUser(searchUser));
         return "searchResult";
     }
 }

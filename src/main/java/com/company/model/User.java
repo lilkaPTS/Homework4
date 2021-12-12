@@ -83,11 +83,11 @@ public class User implements Serializable {
                 '}';
     }
 
-    public static User searchUser(String firstName, String lastName) {
+    public static User searchUser(SearchUser searchUser) {
         LinkedList<User> users = deSerializeObjects();
         User result = null;
         for(User user: users) {
-            if(user.getFirstName().equals(firstName) && user.getLastName().equals(lastName)) {
+            if(user.getFirstName().equals(searchUser.getFirstName()) && user.getLastName().equals(searchUser.getLastName())) {
                 result = user;
             }
         }

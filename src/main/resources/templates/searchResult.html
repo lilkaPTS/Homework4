@@ -8,6 +8,16 @@
 <p th:text="${searchMessage.message.split('\n')[0]}"/>
 <p th:text="${searchMessage.message.split('\n')[1]}"/>
 <p th:text="${searchMessage.message.split('\n')[2]}"/>
+<form action="#" th:action="@{/searchResult}" th:object="${foundUser}" method="post">
+    <input type="hidden" th:value="${foundUser.firstName}" th:attr="name='firstName'"/>
+    <input type="hidden" th:value="${foundUser.lastName}" th:attr="name='lastName'"/>
+    <input type="hidden" th:value="${foundUser.patronymic}" th:attr="name='patronymic'"/>
+    <input type="hidden" th:value="${foundUser.age}" th:attr="name='age'"/>
+    <input type="hidden" th:value="${foundUser.salary}" th:attr="name='salary'"/>
+    <input type="hidden" th:value="${foundUser.email}" th:attr="name='email'"/>
+    <input type="hidden" th:value="${foundUser.company}" th:attr="name='company'"/>
+    <input type="submit" value="Send a message"/>
+</form>
 <a href="/searchForm">Back</a>
 </body>
 </html>
