@@ -24,6 +24,6 @@ public class RegistrationController {
     @PostMapping("/registration") //название html c submit - ом
     public String registrationSubmit(@ModelAttribute User user) {
         User.saveUser(user);
-        return "searchingResults"; //то что нам отдаёт ссылка сверху
+        return "registrationResults"; //то что нам отдаёт ссылка сверху
     }
 }

@@ -112,7 +112,7 @@ public class User implements Serializable {
         }
     }
 
-    private static LinkedList<User> deSerializeObjects() {
+    public static LinkedList<User> deSerializeObjects() {
         LinkedList<User> users = new LinkedList<>();
         try (ObjectInputStream in =
                      new ObjectInputStream(
