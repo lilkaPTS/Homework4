@@ -8,8 +8,8 @@
 <form action="#" th:action="@{/search}" th:object="${searchUser}" method="get">
   <p>First name: <input type="text" th:field="*{firstName}" /></p>
   <p>Last name: <input type="text" th:field="*{lastName}" /></p>
-  <p><input type="submit" value="Submit"/> <input type="reset" value="Reset" /></p>
+  <p><input type="submit" value="Search"/> <input type="reset" value="Reset" /></p>
 </form>
-<a href="/registrationForm">Регистрация пользователя</a>
+<a href="/registrationForm">Registration</a>
 </body>
 </html>
