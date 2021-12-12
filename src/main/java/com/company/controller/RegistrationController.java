@@ -17,7 +17,7 @@ public class RegistrationController {
         return "registration";
     }
 
-    @PostMapping("/registration") //можно было не менять
+    @PostMapping("/registration")
     public String registrationSubmit(@ModelAttribute User user) {
         User.saveUser(user);
         return "registrationResults";
