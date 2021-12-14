@@ -2,6 +2,8 @@ package com.company.controller;
 
 import com.company.model.User;
 
+import com.company.services.AppendFromFile;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -13,6 +15,9 @@ import java.io.IOException;
 
 @Controller
 public class RegistrationController {
+
+    @Autowired
+    public AppendFromFile appendFromFile;
 
     @GetMapping("/")
     public void getStartPage(HttpServletResponse response) throws IOException {

@@ -2,6 +2,7 @@ package com.company.model;
 
 import java.io.*;
 import java.util.LinkedList;
+import java.util.Objects;
 
 public class User implements Serializable {
     private String firstName;
@@ -13,6 +14,18 @@ public class User implements Serializable {
     private String company;
     private final static long serialVersionUID = -5816838616656868105L;
 
+    public User() {
+    }
+
+    public User(String firstName, String lastName, String patronymic, int age, double salary, String email, String company) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.patronymic = patronymic;
+        this.age = age;
+        this.salary = salary;
+        this.email = email;
+        this.company = company;
+    }
 
     public String getFirstName() {
         return firstName;
@@ -83,6 +96,19 @@ public class User implements Serializable {
                 '}';
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        User user = (User) o;
+        return firstName.equals(user.firstName) && lastName.equals(user.lastName) && patronymic.equals(user.patronymic);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(firstName, lastName, patronymic);
+    }
+
     public static User searchUser(SearchUser searchUser) {
         LinkedList<User> users = deSerializeObjects();
         User result = null;
@@ -98,6 +124,10 @@ public class User implements Serializable {
         LinkedList<User> users = deSerializeObjects();
         users.add(user);
         serializeObjects(users);
+    }
+
+    public static boolean contains(User user) {
+        return User.deSerializeObjects().contains(user);
     }
 
     private static void serializeObjects(LinkedList<User> users) {
