@@ -14,4 +14,8 @@ public class UserDAO {
     public void save(User user){
         repository.save(user);
     }
+
+    public User search(String firstName, String lastName) {
+        return repository.getUserByFirstNameAndLastName(firstName, lastName);
+    }
 }

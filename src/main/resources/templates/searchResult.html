@@ -5,10 +5,10 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
 <body>
-<!--<p th:text="${searchMessage.message.split('\n')[0]}"/>
-<p th:text="${searchMessage.message.split('\n')[1]}"/>
-<p th:text="${searchMessage.message.split('\n')[2]}"/>
-<form action="#" th:action="@{/searchResult}" th:object="${foundUser}" method="post">
+<p th:text="${message.getMessage().split('\n')[0]}"/>
+<p th:text="${message.getMessage().split('\n')[1]}"/>
+<p th:text="${message.getMessage().split('\n')[2]}"/>
+<!--<form action="#" th:action="@{/searchResult}" th:object="${foundUser}" method="post">
     <input type="hidden" th:value="${foundUser.firstName}" th:attr="name='firstName'"/>
     <input type="hidden" th:value="${foundUser.lastName}" th:attr="name='lastName'"/>
     <input type="hidden" th:value="${foundUser.patronymic}" th:attr="name='patronymic'"/>
