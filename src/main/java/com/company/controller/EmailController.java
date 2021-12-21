@@ -10,7 +10,6 @@ public class EmailController {
 
     @PostMapping("/searchResult")
     public String getSendResult(@ModelAttribute User foundUser){
-        System.out.println(foundUser);
         EmailSender.sentEmail(foundUser);
         return "sendResult";
     }

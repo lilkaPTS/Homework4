@@ -1,6 +1,7 @@
 package com.company.model;
 
 public class SearchUser {
+
     private String firstName;
     private String lastName;
 

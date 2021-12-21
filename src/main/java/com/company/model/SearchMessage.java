@@ -15,8 +15,8 @@ public class SearchMessage {
         this.message = message;
     }
 
-    public void setMessage(SearchUser searchUser, HttpServletRequest request) {
-        User user = User.searchUser(searchUser);
+    /*public void setMessage(SearchUser searchUser, HttpServletRequest request) {
+        User user = User.search(searchUser);
         if(user == null) {
             this.message = "User not found!\n \n ";
         } else {
@@ -25,5 +25,5 @@ public class SearchMessage {
                     " \nUser-Agent: " + request.getHeader("User-Agent") +
                     "\nUser: " + user;
         }
-    }
+    }*/
 }

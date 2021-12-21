@@ -9,13 +9,14 @@
 <form action="#" th:action="@{/registration}" th:object="${user}" method="post">
   <p>First name: <input type="text" th:field="*{firstName}" /></p>
   <p>Last name: <input type="text" th:field="*{lastName}" /></p>
-  <p>Patronymic: <input type="text" th:field="*{patronymic}" /></p>
-  <p>Age: <input type="text" th:field="*{age}" /></p>
-  <p>Salary: <input type="text" th:field="*{salary}" /></p>
-  <p>Email: <input type="text" th:field="*{email}" /></p>
+  <p>Patronymic: <input type="text" th:field="*{patronymic}" /> </p>
+  <p>Age: <input type="number" th:field="*{age}" /></p>
+  <p>Salary: <input type="number" th:field="*{salary}" /></p>
+  <p>Email: <input type="email" th:field="*{email}" /></p>
   <p>Company: <input type="text" th:field="*{company}" /></p>
   <p><input type="submit" value="Registration"/> <input type="reset" value="Reset" /></p>
 </form>
+
 <a href="/searchForm">User search</a>
 </body>
 </html>
