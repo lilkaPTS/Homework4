@@ -13,4 +13,5 @@ public class EmailController {
         EmailSender.sentEmail(foundUser);
         return "sendResult";
     }
+
 }
