@@ -1,8 +1,8 @@
 package com.company.service;
 
-import com.company.dao.UserDAO;
 import com.company.model.SearchUser;
 import com.company.model.User;
+import com.company.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -14,13 +14,13 @@ import java.util.Date;
 public class MessageService {
 
     @Autowired
-    private UserDAO dao;
+    private UserRepository repository;
 
     public String searchMessage(SearchUser searchUser, HttpServletRequest request) {
-        User user = dao.search(searchUser.getFirstName(), searchUser.getLastName());
+        User user = repository.getUserByFirstNameAndLastName(searchUser.getFirstName(), searchUser.getLastName());
         StringBuilder result = new StringBuilder();
         if(user == null) {
-            result.append("User not found!\n \n ");
+            result.append("User not found! \n \n ");
         } else {
             HttpSession session = request.getSession(true);
             result.append("Time now: ")

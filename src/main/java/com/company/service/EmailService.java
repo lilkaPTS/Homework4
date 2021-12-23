@@ -1,15 +1,17 @@
-package com.company.email;
+package com.company.service;
 
 import com.company.model.User;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSenderImpl;
+import org.springframework.stereotype.Service;
 
 import java.util.Properties;
 
 
-public class EmailSender {
+@Service
+public class EmailService {
 
-    public static void sentEmail(User user) {
+    public void sentEmail(User user) {
         JavaMailSenderImpl emailSender = new JavaMailSenderImpl();
         emailSender.setHost("smtp.gmail.com");
         emailSender.setPort(587);

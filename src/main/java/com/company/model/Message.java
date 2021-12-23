@@ -1,9 +1,5 @@
 package com.company.model;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
-import java.util.Date;
-
 public class Message {
     private String message;
 
@@ -13,5 +9,9 @@ public class Message {
 
     public void setMessage(String message) {
         this.message = message;
+    }
+
+    public boolean isEmpty() {
+        return message.equals("");
     }
 }

@@ -1,8 +1,8 @@
 package com.company.controller;
 
-import com.company.dao.UserDAO;
 import com.company.model.Message;
 import com.company.model.SearchUser;
+import com.company.repository.UserRepository;
 import com.company.service.MessageService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -19,7 +19,7 @@ public class SearchUserController {
     private MessageService messageService;
 
     @Autowired
-    private UserDAO dao;
+    private UserRepository repository;
 
     @GetMapping("/searchForm")
     public String getSearchForm(Model model) {
@@ -30,7 +30,7 @@ public class SearchUserController {
     @GetMapping("/search")
     public String getSearchResultForm(Model model, @ModelAttribute SearchUser searchUser, @ModelAttribute Message message, HttpServletRequest request) {
         message.setMessage(messageService.searchMessage(searchUser, request));
-        model.addAttribute("foundUser", dao.search(searchUser.getFirstName(), searchUser.getLastName()));
+        model.addAttribute("foundUser",  repository.getUserByFirstNameAndLastName(searchUser.getFirstName(), searchUser.getLastName()));
         return "searchResult";
     }
 }

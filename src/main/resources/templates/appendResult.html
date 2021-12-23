@@ -5,6 +5,8 @@
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
 <body>
-<p>Hello world!</p>
+<div th:each="str : ${message.getMessage().split('\n')}">
+  <p th:text="${str}"></p>
+</div>
 </body>
 </html>
